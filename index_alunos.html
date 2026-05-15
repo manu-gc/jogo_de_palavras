@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo das Palavras</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="floating-flowers">
+        <span>✿</span>
+        <span>❀</span>
+        <span>✾</span>
+        <span>❁</span>
+        <span>✽</span>
+    </div>
+
+    <div class="container">
+
+        <div class="title-decoration">
+
+            <span class="decoration-left">✿</span>
+
+            <h1>Jogo das Palavras</h1>
+
+            <span class="decoration-right">❀</span>
+
+        </div>
+
+        <div class="subtitle">
+            <p>⋆✧ adivinhe a palavra secreta ✧⋆</p>
+        </div>
+
+        <div id="setup-container" class="setup-section">
+
+            <div class="input-wrapper">
+
+                <input
+                    type="text"
+                    id="nickname-input"
+                    placeholder="seu nickname"
+                    autocomplete="off"
+                >
+
+                <label
+                    for="nickname-input"
+                    class="input-label"
+                >
+                    como quer ser chamado?
+                </label>
+
+            </div>
+
+            <div class="difficulty-container">
+
+                <p class="difficulty-title">
+                    ✧ escolha a dificuldade ✧
+                </p>
+
+                <div class="difficulty-options">
+
+                    <label class="difficulty-option">
+
+                        <input
+                            type="radio"
+                            name="difficulty"
+                            value="facil"
+                            checked
+                        >
+
+                        <span>Fácil</span>
+
+                    </label>
+
+                    <label class="difficulty-option">
+
+                        <input
+                            type="radio"
+                            name="difficulty"
+                            value="medio"
+                        >
+
+                        <span>Médio</span>
+
+                    </label>
+
+                    <label class="difficulty-option">
+
+                        <input
+                            type="radio"
+                            name="difficulty"
+                            value="dificil"
+                        >
+
+                        <span>Difícil</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <p class="hint">
+                ꧁ pressione Enter para começar ꧂
+            </p>
+
+        </div>
+
+        <div id="game-container" class="game-container hidden">
+
+            <div class="player-card">
+
+                <span class="player-ornament">
+                    ✿
+                </span>
+
+                <h2 id="player-display"></h2>
+
+            </div>
+
+            <div
+                id="word-display"
+                class="word-slots"
+            ></div>
+
+            <div class="input-group">
+
+                <div class="input-wrapper letter-wrapper">
+
+                    <input
+                        type="text"
+                        id="letter-input"
+                        maxlength="1"
+                        placeholder="?"
+                        autocomplete="off"
+                    >
+
+                    <label
+                        for="letter-input"
+                        class="input-label"
+                    >
+                        digite uma letra
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="status-card">
+
+                <div class="errors-container">
+
+                    <span class="error-icon">✦</span>
+
+                    <span>erros:</span>
+
+                    <span
+                        id="error-count"
+                        class="error-count"
+                    >
+                        0
+                    </span>
+
+                    <span>/ 4</span>
+
+                </div>
+
+                <div class="error-progress">
+
+                    <div
+                        class="error-progress-fill"
+                        id="error-progress-fill"
+                    ></div>
+
+                </div>
+
+                <div
+                    id="dica-display"
+                    class="dica-display"
+                ></div>
+
+                <div
+                    id="game-message"
+                    class="game-message"
+                ></div>
+
+            </div>
+
+            <button
+                id="reset-btn"
+                class="reset-btn hidden"
+            >
+                ❧ jogar novamente ❧
+            </button>
+
+        </div>
+
+        <div class="credits">
+
+            <span class="credits-decoration">✽</span>
+
+            <p>desenvolvido por Manoela</p>
+
+            <span class="credits-decoration">✾</span>
+
+        </div>
+
+    </div>
+
+    <audio id="sound-success" preload="auto">
+
+        <source
+            src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+    <audio id="sound-error" preload="auto">
+
+        <source
+            src="https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
