@@ -22,6 +22,10 @@ document
 
 resetBtn.addEventListener('click', reiniciarJogo)
 
+/* ======================================== */
+/* INICIAR JOGO */
+/* ======================================== */
+
 async function iniciarJogo(event) {
 
     if (event.key === "Enter") {
@@ -38,6 +42,11 @@ async function iniciarJogo(event) {
             return
         }
 
+        const nivel =
+            document.querySelector(
+                'input[name="difficulty"]:checked'
+            ).value
+
         const response = await fetch(`${URL_API}/iniciar`, {
 
             method: 'POST',
@@ -49,7 +58,10 @@ async function iniciarJogo(event) {
             },
 
             body: JSON.stringify({
-                nickname: nickname
+
+                nickname: nickname,
+
+                nivel: nivel
             })
         })
 
@@ -64,12 +76,23 @@ async function iniciarJogo(event) {
         setupContainer.classList.add('hidden')
         gameContainer.classList.remove('hidden')
 
-        document.getElementById('player-display').innerText =
-            data.mensagem
+        document.getElementById('player-display').innerHTML =
+            `
+            ${data.mensagem}
+
+            <span class="difficulty-badge ${nivel}">
+                ${getDifficultyEmoji(nivel)}
+                ${getDifficultyName(nivel)}
+            </span>
+            `
 
         buscarPalavra()
     }
 }
+
+/* ======================================== */
+/* BUSCAR PALAVRA */
+/* ======================================== */
 
 async function buscarPalavra() {
 
@@ -97,6 +120,10 @@ async function buscarPalavra() {
         wordDisplay.appendChild(span)
     }
 }
+
+/* ======================================== */
+/* TENTAR LETRA */
+/* ======================================== */
 
 async function tentarLetra(event) {
 
@@ -148,7 +175,6 @@ async function tentarLetra(event) {
                     .getElementById(`slot-${pos}`)
                     .innerText = caractere.toUpperCase()
             })
-
         }
 
         // errou letra
@@ -190,11 +216,11 @@ async function tentarLetra(event) {
 
             resetBtn.classList.remove('hidden')
 
-        
+            // vitória
             if (
                 status === 'vitoria' ||
                 status === 'vitória'
-            ){
+            ) {
 
                 document.body.classList.remove('lose-state')
 
@@ -215,7 +241,7 @@ async function tentarLetra(event) {
                 document.body.classList.add('lose-state')
 
                 gameMessage.innerHTML =
-                    ` ${data.mensagem}
+                    `💀 ${data.mensagem}
                     <br><br>
                     A palavra era:
                     <strong>${data.palavra}</strong>`
@@ -227,7 +253,41 @@ async function tentarLetra(event) {
     }
 }
 
+/* ======================================== */
+/* REINICIAR */
+/* ======================================== */
+
 function reiniciarJogo() {
 
     location.reload()
+}
+
+/* ======================================== */
+/* NOME DA DIFICULDADE */
+/* ======================================== */
+
+function getDifficultyName(nivel) {
+
+    if (nivel === 'facil') {
+        return 'Fácil'
+    }
+
+    if (nivel === 'medio') {
+        return 'Médio'
+    }
+
+    return 'Difícil'
+}
+
+function getDifficultyEmoji(nivel) {
+
+    if (nivel === 'facil') {
+        return '🌸'
+    }
+
+    if (nivel === 'medio') {
+        return '🌸'
+    }
+
+    return '🌸'
 }

@@ -633,3 +633,188 @@ body.lose-state {
         #ccb8bf 100%
     ) !important;
 }
+
+.difficulty-container {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.difficulty-title {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.difficulty-options {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.difficulty-option {
+    cursor: pointer;
+}
+
+.difficulty-option input {
+    display: none;
+}
+
+.difficulty-option span {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 2px solid var(--blush-300);
+
+    color: var(--text-soft);
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.difficulty-option span:hover {
+    transform: translateY(-2px);
+}
+
+.difficulty-option input:checked + span {
+    background: linear-gradient(
+        135deg,
+        var(--blush-500),
+        var(--blush-700)
+    );
+
+    color: white;
+
+    border-color: transparent;
+
+    box-shadow: 0 4px 15px rgba(244, 124, 158, 0.25);
+}
+
+/* ========================= */
+/* BADGE DE DIFICULDADE */
+/* ========================= */
+
+#player-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.difficulty-badge {
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    animation: badgeAppear 0.4s ease;
+}
+
+.difficulty-badge.facil {
+    background: rgba(170, 230, 200, 0.25);
+    color: #4f8a70;
+    border: 2px solid rgba(170, 230, 200, 0.5);
+}
+
+.difficulty-badge.medio {
+    background: rgba(255, 220, 140, 0.25);
+    color: #c28a2e;
+    border: 2px solid rgba(255, 220, 140, 0.5);
+}
+
+.difficulty-badge.dificil {
+    background: rgba(255, 170, 190, 0.25);
+    color: #b04f72;
+    border: 2px solid rgba(255, 170, 190, 0.5);
+}
+
+@keyframes badgeAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========================= */
+/* BADGE DE DIFICULDADE */
+/* ========================= */
+
+#player-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.difficulty-badge {
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    animation: badgeAppear 0.4s ease;
+}
+
+.difficulty-badge.facil {
+    background: rgba(170, 230, 200, 0.25);
+    color: #4f8a70;
+    border: 2px solid rgba(170, 230, 200, 0.5);
+}
+
+.difficulty-badge.medio {
+    background: rgba(255, 220, 140, 0.25);
+    color: #c28a2e;
+    border: 2px solid rgba(255, 220, 140, 0.5);
+}
+
+.difficulty-badge.dificil {
+    background: rgba(255, 170, 190, 0.25);
+    color: #b04f72;
+    border: 2px solid rgba(255, 170, 190, 0.5);
+}
+
+@keyframes badgeAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
